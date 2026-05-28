@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KI-Leitlinie – Reflexion</title>
+
+<style>
+:root{
+  --bg1:#07111f;
+  --bg2:#163055;
+  --blue:#2f8cff;
+  --gold:#ffd21f;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family:Arial,sans-serif;
+  color:white;
+
+  background:
+    radial-gradient(circle at top left,rgba(47,140,255,.28),transparent 32%),
+    radial-gradient(circle at bottom right,rgba(255,210,31,.14),transparent 28%),
+    linear-gradient(135deg,var(--bg1),var(--bg2));
+}
+
+/* Hintergrund */
+
+.bg{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+}
+
+.grid{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:42px 42px;
+  opacity:.35;
+}
+
+.glow{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+}
+
+.g1{
+  width:420px;
+  height:420px;
+  background:rgba(47,140,255,.22);
+  left:-120px;
+  top:-120px;
+}
+
+.g2{
+  width:340px;
+  height:340px;
+  background:rgba(255,210,31,.12);
+  right:-80px;
+  bottom:-80px;
+}
+
+/* Karte */
+
+.card{
+  position:relative;
+  z-index:2;
+
+  width:min(92%,820px);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.10),
+      rgba(255,255,255,.04)
+    );
+
+  border:1px solid rgba(255,255,255,.14);
+
+  border-radius:34px;
+
+  padding:54px;
+
+  backdrop-filter:blur(16px);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.badge{
+  display:inline-block;
+
+  padding:10px 14px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.10);
+
+  color:#ffe45d;
+
+  font-weight:900;
+
+  letter-spacing:.04em;
+
+  text-transform:uppercase;
+
+  font-size:.88rem;
+}
+
+h1{
+  margin:20px 0 18px 0;
+
+  font-size:clamp(2.7rem,6vw,5.6rem);
+
+  line-height:.92;
+
+  letter-spacing:-.06em;
+
+  font-weight:1000;
+}
+
+p{
+  margin:0;
+
+  font-size:1.18rem;
+
+  line-height:1.7;
+
+  color:#dbe7ff;
+
+  max-width:720px;
+}
+
+.info{
+  margin-top:28px;
+
+  padding:18px 22px;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,.06);
+
+  border:1px solid rgba(255,255,255,.10);
+
+  color:#f0f5ff;
+
+  line-height:1.6;
+}
+
+.buttonWrap{
+  margin-top:34px;
+}
+
+button{
+  width:100%;
+
+  border:none;
+
+  border-radius:22px;
+
+  padding:24px;
+
+  cursor:pointer;
+
+  font-size:1.25rem;
+
+  font-weight:1000;
+
+  letter-spacing:-.02em;
+
+  color:#07111f;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2f8cff,
+      #6bb8ff
+    );
+
+  box-shadow:
+    0 16px 40px rgba(47,140,255,.34);
+
+  transition:.22s;
+}
+
+button:hover{
+  transform:
+    translateY(-2px)
+    scale(1.01);
+}
+
+.small{
+  margin-top:18px;
+
+  text-align:center;
+
+  color:#b7c8e8;
+
+  font-size:.96rem;
+}
+
+/* kleine Animation */
+
+.floating{
+  position:absolute;
+
+  width:14px;
+  height:14px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.18);
+
+  animation:float 8s linear infinite;
+}
+
+.f1{
+  left:10%;
+  top:80%;
+  animation-duration:10s;
+}
+
+.f2{
+  left:78%;
+  top:74%;
+  animation-duration:12s;
+}
+
+.f3{
+  left:60%;
+  top:92%;
+  animation-duration:14s;
+}
+
+@keyframes float{
+  0%{
+    transform:
+      translateY(0)
+      scale(1);
+    opacity:0;
+  }
+
+  20%{
+    opacity:1;
+  }
+
+  100%{
+    transform:
+      translateY(-800px)
+      scale(1.8);
+    opacity:0;
+  }
+}
+
+@media(max-width:700px){
+
+  .card{
+    padding:34px 24px;
+  }
+
+  p{
+    font-size:1.05rem;
+  }
+
+  button{
+    font-size:1.08rem;
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+  <div class="grid"></div>
+
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="floating f1"></div>
+  <div class="floating f2"></div>
+  <div class="floating f3"></div>
+</div>
+
+<div class="card">
+
+  <div class="badge">
+    KI-Leitlinie · Reflexion
+  </div>
+
+  <h1>
+    KI gemeinsam<br>
+    weiterdenken
+  </h1>
+
+  <p>
+    Erarbeiten Sie mit Hilfe der KI in wenigen Minuten
+    zwei zentrale Aspekte, die aus Ihrer Sicht
+    bei einer möglichen schulischen KI-Leitlinie
+    besonders beachtet werden sollten.
+  </p>
+
+  <div class="info">
+    Die KI unterstützt dabei,
+    Gedanken zu strukturieren,
+    Prioritäten herauszuarbeiten
+    und mögliche Handlungsvorschläge
+    für den Schulalltag zu entwickeln.
+  </div>
+
+  <div class="buttonWrap">
+    <button onclick="openPrompt()">
+      ChatGPT-Dialog starten
+    </button>
+  </div>
+
+  <div class="small">
+    Dauer: ca. 5 Minuten
+  </div>
+
+</div>
+
+<script>
+function openPrompt(){
+
+const prompt = `
+Du bist ein strukturierter, konstruktiver und effizienter Gesprächspartner für Lehrkräfte.
+
+Ziel:
+Hilf mir dabei, in sehr kurzer Zeit wichtige Aspekte für eine mögliche schulische Leitlinie zur Nutzung von KI herauszuarbeiten.
+
+Wichtig:
+Die Zeit ist begrenzt.
+Führe mich deshalb aktiv, fokussiert und effizient durch den Prozess.
+
+Sehr wichtig:
+Dränge mich nicht in eine bestimmte Richtung.
+Ich soll zuerst eigene Gedanken, Sorgen, Wünsche und Erfahrungen einbringen können.
+
+Deine Aufgabe:
+- Stelle mir kurze, gezielte Rückfragen.
+- Hilf mir dabei, meine wichtigsten Gedanken zu konkretisieren.
+- Reagiere aktiv auf meine Antworten.
+- Priorisiere gemeinsam mit mir die wichtigsten Aspekte.
+- Gib sinnvolle Anregungen, aber erst nachdem ich eigene Gedanken genannt habe.
+- Frage nach, wenn etwas besonders relevant erscheint.
+- Hilf mir dabei, aus allgemeinen Gedanken konkrete Aspekte für eine mögliche Leitlinie zu entwickeln.
+
+Wichtig:
+Starte NICHT sofort mit fertigen Vorschlägen oder langen Listen.
+
+Beginne stattdessen damit, mich nach meinen eigenen Gedanken zu fragen.
+
+Arbeitsweise:
+- Stelle immer nur EINE kurze Frage auf einmal.
+- Halte Antworten kompakt.
+- Arbeite zielgerichtet.
+- Vermeide lange Listen.
+- Priorisiere aktiv.
+- Arbeite darauf hin, am Ende zwei besonders relevante Aspekte herauszuarbeiten.
+
+Betrachte insbesondere:
+- Fairness und Eigenleistung
+- Transparenz bei KI-Nutzung
+- Datenschutz
+- sinnvolle Lernunterstützung
+- Leistungsbewertung
+- mögliche Risiken
+- Entlastungspotenziale
+- Medienkompetenz
+- Umgang mit Hausaufgaben
+- Unterschiede zwischen Mittelstufe und Oberstufe
+
+Wichtigstes Ziel:
+Arbeite gemeinsam mit mir ZWEI besonders relevante Aspekte heraus, die bei der Entwicklung einer schulischen KI-Leitlinie unbedingt beachtet werden sollten.
+
+Zu jedem Aspekt:
+- formuliere kurz, worauf geachtet werden sollte
+- und ergänze einen möglichen konkreten Handlungsvorschlag für die Schule.
+
+Abschluss:
+Am Ende:
+- fasse meine wichtigsten Gedanken kurz zusammen,
+- priorisiere gemeinsam mit mir,
+- und formuliere daraus genau zwei zentrale Aspekte.
+
+Format am Ende:
+
+#Aspekt 1:
+...
+
+Mögliche Umsetzung:
+...
+
+#Aspekt 2:
+...
+
+Mögliche Umsetzung:
+...
+
+SEHR WICHTIG:
+Nachdem die zwei Aspekte formuliert wurden:
+1. fordere mich ausdrücklich dazu auf, die beiden Aspekte jetzt zu kopieren
+2. fordere mich anschließend auf, auf diesen Link zu klicken:
+https://flinga.fi/s/FHXGY6S
+3. und die Ergebnisse dort einzutragen.
+
+Formuliere diesen Hinweis deutlich sichtbar und motivierend.
+
+Die gesamte Interaktion soll maximal etwa 5 Minuten dauern.
+`;
+
+const url =
+"https://chatgpt.com/?prompt=" +
+encodeURIComponent(prompt);
+
+window.location.href = url;
+}
+</script>
+
+</body>
+</html>
